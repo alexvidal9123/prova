@@ -1,5 +1,5 @@
 const APP_CONFIG = {
-  apiKey: window.__GEMINI_API_KEY__ || '',
+  apiKey: window.__GEMINI_API_KEY__ || 'AIzaSyDoqT1w9EGf6PFvWHCgBwDb970VHZJ6Qt0',
   model: window.__GEMINI_MODEL__ || 'gemini-2.0-flash',
 };
 
