@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Tests amb Gemini</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Generador de Tests amb Gemini</h1>
+    <p class="subtitle">Puja un fitxer, indica quantes preguntes vols i practica fins encertar-ho tot.</p>
+
+    <section class="panel">
+      <label for="apiKey">Gemini API Key</label>
+      <input id="apiKey" type="password" placeholder="AIza..." autocomplete="off" />
+
+      <label for="model">Model Gemini</label>
+      <input id="model" type="text" value="gemini-2.0-flash" />
+
+      <label for="fileInput">Fitxer d'estudi (txt, md, pdf...)</label>
+      <input id="fileInput" type="file" />
+
+      <label for="numQuestions">Nombre de preguntes</label>
+      <input id="numQuestions" type="number" min="1" max="30" value="5" />
+
+      <button id="startBtn">Generar test</button>
+      <p class="warning">⚠️ Aquesta versió és client-side per GitHub Pages: la clau API queda al navegador de l'usuari.</p>
+    </section>
+
+    <section id="quizSection" class="panel hidden">
+      <h2 id="quizTitle">Qüestionari</h2>
+      <form id="quizForm"></form>
+      <div class="actions">
+        <button id="submitBtn" type="button">Corregir</button>
+      </div>
+    </section>
+
+    <section id="resultSection" class="panel hidden"></section>
+
+    <section class="panel">
+      <h2>Com publicar a GitHub Pages</h2>
+      <ol>
+        <li>Puja aquests fitxers a un repositori.</li>
+        <li>A GitHub: <strong>Settings → Pages</strong>.</li>
+        <li>A <strong>Build and deployment</strong>, tria <strong>Deploy from a branch</strong>.</li>
+        <li>Selecciona la branca (normalment <code>main</code>) i carpeta <code>/root</code>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="app.js" type="module"></script>
+</body>
+</html>
