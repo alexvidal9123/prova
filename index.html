@@ -3,29 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Generador de Tests amb Gemini</title>
+  <title>MasteryLab AI</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-icon">🎓</span>
+      <span>MasteryLab AI</span>
+    </div>
+  </header>
+
   <main class="container">
-    <h1>Generador de Tests amb Gemini</h1>
-    <p class="subtitle">Puja un fitxer, indica quantes preguntes vols i practica fins encertar-ho tot.</p>
+    <section class="upload-card">
+      <div class="upload-icon">⇪</div>
+      <h1>Puja el teu material d'estudi</h1>
+      <p>Arrossega o selecciona un fitxer PDF, TXT o MD. Generarem un qüestionari personalitzat per ajudar-te a dominar el contingut.</p>
 
-    <section class="panel">
-      <label for="apiKey">Gemini API Key</label>
-      <input id="apiKey" type="password" placeholder="AIza..." autocomplete="off" />
-
-      <label for="model">Model Gemini</label>
-      <input id="model" type="text" value="gemini-2.0-flash" />
-
-      <label for="fileInput">Fitxer d'estudi (txt, md, pdf...)</label>
+      <label class="file-picker" for="fileInput">Selecciona fitxer d'estudi</label>
       <input id="fileInput" type="file" />
 
       <label for="numQuestions">Nombre de preguntes</label>
       <input id="numQuestions" type="number" min="1" max="30" value="5" />
 
-      <button id="startBtn">Generar test</button>
-      <p class="warning">⚠️ Aquesta versió és client-side per GitHub Pages: la clau API queda al navegador de l'usuari.</p>
+      <button id="startBtn" type="button">Generar test</button>
+      <p id="configWarning" class="warning hidden">⚠️ Falta configuració del servidor (API key/model).</p>
+      <div class="features">
+        <span>◌ ADAPTATIU</span>
+        <span>◌ SINCRONITZAT</span>
+      </div>
     </section>
 
     <section id="quizSection" class="panel hidden">
@@ -37,16 +43,6 @@
     </section>
 
     <section id="resultSection" class="panel hidden"></section>
-
-    <section class="panel">
-      <h2>Com publicar a GitHub Pages</h2>
-      <ol>
-        <li>Puja aquests fitxers a un repositori.</li>
-        <li>A GitHub: <strong>Settings → Pages</strong>.</li>
-        <li>A <strong>Build and deployment</strong>, tria <strong>Deploy from a branch</strong>.</li>
-        <li>Selecciona la branca (normalment <code>main</code>) i carpeta <code>/root</code>.</li>
-      </ol>
-    </section>
   </main>
 
   <script src="app.js" type="module"></script>
